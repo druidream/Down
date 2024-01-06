@@ -13,11 +13,13 @@ struct ContentView: View {
     @State var markdownString: String
     
     init() {
-        if let readMeURL = Bundle.main.url(forResource: nil, withExtension: "md"),
+        if let readMeURL = Bundle.main.url(forResource: "message", withExtension: "md"),
            let readMeContents = try? String(contentsOf: readMeURL) {
+          print(readMeURL)
             markdownString = readMeContents
         }
         else {
+          print("else")
             markdownString = ""
                 debugPrint("Could not load readme contents.")
         }
